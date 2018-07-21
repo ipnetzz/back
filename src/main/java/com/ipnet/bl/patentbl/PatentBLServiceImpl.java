@@ -2,10 +2,15 @@ package com.ipnet.bl.patentbl;
 
 import com.ipnet.VO.PatentVO;
 import com.ipnet.blservice.PatentBLService;
+import com.ipnet.dao.PatentDao;
+import com.ipnet.dao.UserDao;
+import com.ipnet.entity.Patent;
 import com.ipnet.enums.Patent_state;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author lzb
@@ -13,8 +18,15 @@ import java.util.List;
  */
 @Service
 public class PatentBLServiceImpl implements PatentBLService {
+
+    @Autowired
+    private PatentDao patentDao;
+
+
     @Override
     public Boolean createPatent(PatentVO newPatent) {
+        Patent patent = null;
+        Patent realPatent = this.patentDao.saveAndFlush(patent);
         return null;
     }
 

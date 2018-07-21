@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -37,15 +38,15 @@ public class CompanyUser {
     private double money;//人民币
     private int points;//积分
     @ElementCollection(targetClass = String.class)
-    private ArrayList<String> bank_accounts;//银行账号
+    private List<String> bank_accounts;//银行账号
     private String password;//密码
     @ElementCollection(targetClass = Identity.class)
-    private ArrayList<Identity> identities;//身份认证
+    private List<Identity> identities;//身份认证
     private String user_name;//用户名
     private String description;//自我描述
     private String register_date;//注册日期
     @ElementCollection(targetClass = String.class)
-    private ArrayList<String> patent_id;//拥有专利号
+    private List<String> patent_id;//拥有专利号
     @ElementCollection(targetClass = String.class)
-    private ArrayList<String> patent_pool_id;//拥有专利池号
+    private List<String> patent_pool_id;//拥有专利池号
 }
