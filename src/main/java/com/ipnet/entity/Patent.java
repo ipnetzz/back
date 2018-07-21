@@ -26,4 +26,5 @@ public class Patent {
     private String valid_period;//有效期限
     private Region region;//所属地区
     private Patent_type patent_type;//专利类别
+
 }
