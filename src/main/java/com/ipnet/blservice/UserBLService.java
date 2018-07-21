@@ -5,5 +5,5 @@ package com.ipnet.blservice;
  * @Description:
  * @CreateData: 2018/7/21 10:03
  */
-public interface userblservice {
+public interface UserBLService {
 }
