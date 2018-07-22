@@ -1,8 +1,7 @@
 package com.ipnet.blservice;
 
 import com.ipnet.VO.PatentPoolVO;
-import com.ipnet.VO.PatentVO;
-import com.ipnet.enums.Patent_state;
+import com.ipnet.utility.IDNotExistsException;
 
 import java.util.List;
 
@@ -12,13 +11,15 @@ import java.util.List;
  */
 public interface PatentPoolBLService {
 
-    Boolean createPatentPool(PatentPoolVO newPatentPool);
+    PatentPoolVO createPatentPool(PatentPoolVO newPatentPool);
 
     PatentPoolVO searchPatentPoolByID(String patentPoolID);
 
-    List<PatentVO> searchPatentPoolByName(String patentPoolName);
+    List<PatentPoolVO> searchPatentPoolByName(String patentPoolName);
 
     Boolean deletePatentPool(String patentPoolID);
+
+    Boolean addPatentIntoPool(String poolID , String PatentID) throws IDNotExistsException;
 
 
 

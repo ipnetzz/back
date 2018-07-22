@@ -7,9 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -20,6 +18,7 @@ import java.util.Date;
 public class Patent {
     @Id
     private String patent_id;//专利号
+    private String patent_name;//专利名称
     private String patent_holder;//专利持有者
     private Patent_state state;//专利状态
     private Date apply_date;//申请时间

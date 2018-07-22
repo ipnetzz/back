@@ -24,6 +24,7 @@ public class TransHelperTest {
     @Test
     public void transTO() {
         Patent patent = new Patent();
+        patent.setPatent_id("hello world");
         PatentVO vo = (PatentVO) this.transHelper.transTO(patent,PatentVO.class);
         System.out.println(vo);
     }
