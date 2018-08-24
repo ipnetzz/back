@@ -5,14 +5,16 @@ import com.ipnet.enums.Identity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "company_user")
 public class CompanyUser {
@@ -34,18 +36,16 @@ public class CompanyUser {
     private String credit_code;//法人信用代码
     private double money;//人民币
     private int points;//积分
-    @ElementCollection(targetClass = String.class,fetch = FetchType.LAZY)
-    private List<String> bank_accounts;//银行账号
+    @ElementCollection(targetClass = String.class)
+    private ArrayList<String> bank_accounts;//银行账号
     private String password;//密码
     @ElementCollection(targetClass = Identity.class)
-    private List<Identity> identities;//身份认证
+    private ArrayList<Identity> identities;//身份认证
     private String user_name;//用户名
     private String description;//自我描述
     private String register_date;//注册日期
     @ElementCollection(targetClass = String.class)
-    private List<String> patent_id;//拥有专利号
+    private ArrayList<String> patent_id;//拥有专利号
     @ElementCollection(targetClass = String.class)
-    private List<String> patent_pool_id;//拥有专利池号
-
-    public CompanyUser(){}
+    private ArrayList<String> patent_pool_id;//拥有专利池号
 }
