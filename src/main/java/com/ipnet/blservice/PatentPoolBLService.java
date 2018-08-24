@@ -4,9 +4,6 @@ import com.ipnet.utility.IDNotExistsException;
 import com.ipnet.vo.PatentPoolVO;
 import com.ipnet.vo.PatentVO;
 
-import com.ipnet.vo.PatentPoolVO;
-import com.ipnet.utility.IDNotExistsException;
-
 import java.util.List;
 
 /**
