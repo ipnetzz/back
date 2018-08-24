@@ -2,6 +2,11 @@ server:
   port: 8000
 debug: false
 spring:
+  mail:
+    host: smtp.163.com
+    username: ipnet2018@163.com
+    password: ipnet2018
+    default-encoding: UTF-8
   devtools:
     restart:
       enabled: true
@@ -17,7 +22,7 @@ spring:
   datasource:
       driver-class-name: com.mysql.jdbc.Driver
       username: root
-      password: 123456
+      password: mysql
       url: jdbc:mysql://localhost:3306/ipnet?characterEncoding=UTF-8&useSSL=true
 
   jpa:
@@ -32,3 +37,7 @@ spring:
       hibernate:
         enable_lazy_load_no_trans: true
     open-in-view: true
+
+
+constant:
+  codeLength: 6

@@ -3,7 +3,6 @@ package com.ipnet.blservice;
 import com.ipnet.vo.PatentVO;
 import com.ipnet.utility.IDNotExistsException;
 import com.ipnet.enums.Patent_state;
-
 import java.util.List;
 
 /**
