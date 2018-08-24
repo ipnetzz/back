@@ -21,7 +21,7 @@ public class MessageController {
     public @ResponseBody
     ResultMessage addMessage(@RequestParam String receiver,@RequestParam String event){
         messageBLService.generateMessage(receiver,event);
-        return ResultMessage.SUCCESS;
+        return ResultMessage.Success;
     }
 
     @RequestMapping("/showAll")

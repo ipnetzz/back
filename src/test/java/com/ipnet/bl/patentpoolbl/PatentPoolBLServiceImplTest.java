@@ -1,7 +1,7 @@
 package com.ipnet.bl.patentpoolbl;
 
-import com.ipnet.VO.PatentPoolVO;
-import com.ipnet.VO.PatentVO;
+import com.ipnet.vo.PatentPoolVO;
+import com.ipnet.vo.PatentVO;
 import com.ipnet.blservice.PatentBLService;
 import com.ipnet.blservice.PatentPoolBLService;
 import com.ipnet.entity.PatentPool;

@@ -1,4 +1,6 @@
 package com.ipnet.blservice;
+
+import com.ipnet.utility.IDNotExistsException;
 import com.ipnet.vo.PatentPoolVO;
 import com.ipnet.vo.PatentVO;
 

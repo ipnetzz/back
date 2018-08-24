@@ -1,6 +1,6 @@
 package com.ipnet.bl.patentbl;
 
-import com.ipnet.VO.PatentVO;
+import com.ipnet.vo.PatentVO;
 import com.ipnet.blservice.PatentBLService;
 import com.ipnet.dao.PatentDao;
 import com.ipnet.entity.Patent;
