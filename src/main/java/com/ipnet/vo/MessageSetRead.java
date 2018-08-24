@@ -11,5 +11,5 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class MessageSetRead {
     private String username;
-    private ArrayList<String> messageList;
+    private ArrayList<String> messageTimeList;
 }

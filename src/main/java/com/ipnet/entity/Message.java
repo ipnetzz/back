@@ -11,7 +11,6 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "message")
-@NoArgsConstructor
 @AllArgsConstructor
 public class Message {
     @Id
@@ -21,6 +20,8 @@ public class Message {
     private String event;
     private String time;
     private boolean isRead;
+
+    public Message(){}
 
     public Message(String receiver,String event,boolean isRead){
         this.receiver=receiver;

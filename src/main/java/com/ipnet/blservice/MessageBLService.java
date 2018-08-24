@@ -11,6 +11,7 @@ public interface MessageBLService {
 
     void setRead(MessageSetRead messageSetRead);
 
+    ArrayList<Message> getAllMessageList(String username);
     ArrayList<Message> getReadMessageList(String username);
     ArrayList<Message> getUnreadMessageList(String username);
 }
