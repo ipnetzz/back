@@ -1,6 +1,6 @@
 package com.ipnet.bl.patentpoolbl;
 
-import com.ipnet.VO.PatentPoolVO;
+import com.ipnet.vo.PatentPoolVO;
 import com.ipnet.utility.IDNotExistsException;
 import com.ipnet.bl.patentbl.PatentBLHelper;
 import com.ipnet.blservice.PatentPoolBLService;

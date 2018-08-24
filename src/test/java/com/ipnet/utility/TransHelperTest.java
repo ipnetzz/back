@@ -1,6 +1,6 @@
 package com.ipnet.utility;
 
-import com.ipnet.VO.PatentVO;
+import com.ipnet.vo.PatentVO;
 import com.ipnet.entity.Patent;
 import org.junit.Test;
 import org.junit.runner.RunWith;

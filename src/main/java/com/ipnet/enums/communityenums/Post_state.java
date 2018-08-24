@@ -1,4 +1,4 @@
 package com.ipnet.enums.communityenums;
 
-public class Post_state {
+public enum Post_state {
 }

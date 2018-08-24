@@ -1,4 +1,4 @@
-package com.ipnet.VO;
+package com.ipnet.vo;
 
 import com.ipnet.enums.Patent_state;
 import com.ipnet.enums.Patent_type;

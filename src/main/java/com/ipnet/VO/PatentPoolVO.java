@@ -1,4 +1,4 @@
-package com.ipnet.VO;
+package com.ipnet.vo;
 
 import com.ipnet.enums.Industry;
 import lombok.*;

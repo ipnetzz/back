@@ -1,7 +1,7 @@
 package com.ipnet.utility;
 
-import com.ipnet.VO.PatentPoolVO;
-import com.ipnet.VO.PatentVO;
+import com.ipnet.vo.PatentPoolVO;
+import com.ipnet.vo.PatentVO;
 import com.ipnet.entity.Patent;
 import com.ipnet.entity.PatentPool;
 import org.springframework.stereotype.Service;
