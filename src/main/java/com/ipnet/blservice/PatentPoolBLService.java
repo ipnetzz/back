@@ -1,5 +1,4 @@
 package com.ipnet.blservice;
-
 import com.ipnet.vo.PatentPoolVO;
 import com.ipnet.vo.PatentVO;
 
@@ -11,13 +10,15 @@ import java.util.List;
  */
 public interface PatentPoolBLService {
 
-    Boolean createPatentPool(PatentPoolVO newPatentPool);
+    PatentPoolVO createPatentPool(PatentPoolVO newPatentPool);
 
     PatentPoolVO searchPatentPoolByID(String patentPoolID);
 
-    List<PatentVO> searchPatentPoolByName(String patentPoolName);
+    List<PatentPoolVO> searchPatentPoolByName(String patentPoolName);
 
     Boolean deletePatentPool(String patentPoolID);
+
+    Boolean addPatentIntoPool(String poolID , String PatentID) throws IDNotExistsException;
 
 
 
