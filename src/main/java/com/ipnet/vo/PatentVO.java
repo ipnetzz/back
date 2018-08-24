@@ -1,4 +1,4 @@
-package com.ipnet.VO;
+package com.ipnet.vo;
 
 /**
  * @author lzb

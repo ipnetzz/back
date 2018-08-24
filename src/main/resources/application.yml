@@ -2,6 +2,11 @@ server:
   port: 8000
 debug: false
 spring:
+  mail:
+    host: smtp.163.com
+    username: ipnet2018@163.com
+    password: ipnet2018
+    default-encoding: UTF-8
   devtools:
     restart:
       enabled: true
@@ -29,3 +34,6 @@ spring:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     properties:
       dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+constant:
+  codeLength: 6

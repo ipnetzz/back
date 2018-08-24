@@ -1,8 +1,7 @@
 package com.ipnet.blservice;
 
-import com.ipnet.VO.PatentPoolVO;
-import com.ipnet.VO.PatentVO;
-import com.ipnet.enums.Patent_state;
+import com.ipnet.vo.PatentPoolVO;
+import com.ipnet.vo.PatentVO;
 
 import java.util.List;
 
