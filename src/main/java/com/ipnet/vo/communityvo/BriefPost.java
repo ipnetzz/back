@@ -8,15 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostVO {
+public class BriefPost {
     private String post_id;
     private String author;
     private String post_name;
@@ -26,9 +24,4 @@ public class PostVO {
     private Date publish_time;
     private long visits;
     private long remark_num;
-    private ArrayList<Remark> remark_content;
-    private Post_state post_state;
-
-
-
 }
