@@ -11,7 +11,6 @@ import java.util.Date;
 @Entity
 @Table(name = "remark")
 @AllArgsConstructor
-@NoArgsConstructor
 public class Remark {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +19,8 @@ public class Remark {
     private String remark_content;
     private String reviewer;
     private Date remark_time;
+
+    public Remark(){}
 
     public Remark(String post_id,String remark_content,String reviewer){
         this.post_id=post_id;

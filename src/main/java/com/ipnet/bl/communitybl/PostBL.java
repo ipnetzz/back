@@ -10,13 +10,13 @@ import com.ipnet.enums.communityenums.Post_tag;
 import com.ipnet.enums.communityenums.Post_type;
 import com.ipnet.vo.communityvo.BriefPost;
 import com.ipnet.vo.communityvo.PostVO;
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class PostBL implements PostBLService {
@@ -82,7 +82,7 @@ public class PostBL implements PostBLService {
         Remark remark=new Remark(post_id,reviewer,remark_content);
         Post post=postDao.getOne(post_id);
         post.setRemark_num(post.getRemark_num()+1);
-        ArrayList<Remark> remarks=post.getRemark_content();
+        List<Remark> remarks=post.getRemark_content();
         remarks.add(remark);
         post.setRemark_content(remarks);
         postDao.save(post);
@@ -90,8 +90,10 @@ public class PostBL implements PostBLService {
     }
 
     @Override
-    public PostVO readArticle(String author, String post_name) {
-        return null;
+    public PostVO readArticle(String post_id) {
+        Post post=postDao.getOne(post_id);
+        PostVO postVO=new PostVO(post);
+        return postVO;
     }
 
     @Override

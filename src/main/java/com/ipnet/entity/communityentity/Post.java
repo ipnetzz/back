@@ -11,12 +11,13 @@ import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "post")
 @AllArgsConstructor
-@NoArgsConstructor
+
 public class Post {
     @Id
     private String post_id;
@@ -29,9 +30,10 @@ public class Post {
     private long visits;
     private long remark_num;
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    private ArrayList<Remark> remark_content;
+    private List<Remark> remark_content;
     private Post_state post_state;
 
+    public Post(){}
     public Post(String author){
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置日期格式
         String currentTime=df.format(new Date());// new Date()为获取当前系统时间

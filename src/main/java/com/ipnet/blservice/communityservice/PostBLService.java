@@ -17,6 +17,6 @@ public interface PostBLService {
     ResultMessage clickCancel(String post_id);
     ResultMessage editDraft(String post_id,String post_name,Post_type post_type,Post_tag post_tag,String content_url);
     ResultMessage remark(String post_id,String reviewer,String remark_content);
-    PostVO readArticle(String author, String post_name);
+    PostVO readArticle(String post_id);
     ArrayList<BriefPost> readArticleList(String author);
 }
