@@ -6,20 +6,46 @@ import com.ipnet.entity.communityentity.CommunityUser;
 import com.ipnet.entity.communityentity.Mine;
 import com.ipnet.entity.communityentity.MineTag;
 import com.ipnet.enums.communityenums.Post_tag;
+import com.ipnet.utility.TransHelper;
+import com.ipnet.vo.communityvo.CUserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 @Service
 public class CommunityUserBL implements CommunityUserBLService {
 
     @Autowired
     private CommunityUserDao communityUserDao;
+    @Autowired
+    private TransHelper transHelper;
+
+    @Override
+    public void addUser(String userID) {
+        CommunityUser newUser=new CommunityUser(userID,"","",0,0,
+                0,0,0,new ArrayList<>());
+        communityUserDao.save(newUser);
+    }
+
+    @Override
+    public CUserVO getUserInfo(String userID) {
+        Optional<CommunityUser> user=communityUserDao.findById(userID);
+        if(user.isPresent()){
+            CUserVO cUserVO=(CUserVO) this.transHelper.transTO(user.get(),CUserVO.class);
+            cUserVO.setCredits(0);
+            cUserVO.setWallet(0);
+            cUserVO.setMyTags(user.get().getTags().split(","));
+            return cUserVO;
+        }
+        return null;
+    }
 
     @Override
     public void modifySignature(String username, String signature) {

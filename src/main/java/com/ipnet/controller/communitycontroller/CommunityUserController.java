@@ -3,6 +3,7 @@ package com.ipnet.controller.communitycontroller;
 import com.ipnet.blservice.communityservice.CommunityUserBLService;
 import com.ipnet.entity.communityentity.Mine;
 import com.ipnet.enums.communityenums.Post_tag;
+import com.ipnet.vo.communityvo.CUserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,12 @@ public class CommunityUserController {
 
     @Autowired
     private CommunityUserBLService blService;
+
+    @RequestMapping("/info")
+    public @ResponseBody
+    CUserVO getUserInfo(String userID){
+        return blService.getUserInfo(userID);
+    }
 
     @RequestMapping("/signature")
     public @ResponseBody

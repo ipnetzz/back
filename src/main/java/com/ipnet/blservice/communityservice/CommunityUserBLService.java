@@ -2,12 +2,17 @@ package com.ipnet.blservice.communityservice;
 
 import com.ipnet.entity.communityentity.Mine;
 import com.ipnet.enums.communityenums.Post_tag;
+import com.ipnet.vo.communityvo.CUserVO;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public interface CommunityUserBLService {
 
+    //当用户注册后，自动为其生成一个社区实体
+    void addUser(String userID);
+    //获得用户的基本信息,包括积分，钱包，签名，关注数……
+    CUserVO getUserInfo(String userID);
     //用户修改社区中个性签名
     void modifySignature(String username,String signature);
     //用户选择他感兴趣的标签

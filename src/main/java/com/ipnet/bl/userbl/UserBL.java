@@ -2,6 +2,7 @@ package com.ipnet.bl.userbl;
 
 import com.ipnet.blservice.AliService;
 import com.ipnet.blservice.UserBLService;
+import com.ipnet.blservice.communityservice.CommunityUserBLService;
 import com.ipnet.dao.UserDao;
 import com.ipnet.enums.ResultMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ public class UserBL implements UserBLService{
     private AliService aliService;
     @Autowired
     private JavaMailSender mailSender;
+    @Autowired
+    private CommunityUserBLService communityUserBLService;
 
     @Value("${spring.mail.username}")
     private String fromEmail;
@@ -88,6 +91,8 @@ public class UserBL implements UserBLService{
 
     @Override
     public ResultMessage personalRegister(String telephone, String password) {
+        //自动为用户生成社区用户的实体
+        communityUserBLService.addUser(telephone);
         return null;
     }
 

@@ -16,9 +16,10 @@ public class UserController {
     @Autowired
     private UserBLService userBLService;
 
-    @RequestMapping("test")
-    public String test(){
-        return "test";
+    @RequestMapping("/registerTest")
+    public @ResponseBody
+    void test(String username,String password){
+        userBLService.personalRegister(username,password);
     }
 
     //发送短信验证码
