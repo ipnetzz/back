@@ -13,7 +13,7 @@ class AliConstant {
     static final String oss_accessKeyId = "LTAIjepeKxO6hy33";
     static final String oss_accessKeySecret = "NDaWbjFlb85pavellT1KKTLmLZ7Xus";
     //空间
-    static final String bucketName = "ipnet";
+    static final String bucketName = "ipnet10";
     //文件存储目录
     static String fileDir = "/";
 

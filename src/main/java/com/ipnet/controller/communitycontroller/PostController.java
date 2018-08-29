@@ -1,6 +1,6 @@
 package com.ipnet.controller.communitycontroller;
 
-import com.ipnet.utility.oss.OSSClientUtil;
+import com.ipnet.bl.ali.AliServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 @Controller
@@ -18,11 +17,11 @@ import java.util.ArrayList;
 public class PostController {
 
     @Autowired
-    private OSSClientUtil ossClientUtil;
+    private AliServiceImpl aliService;
 
     @RequestMapping(value = "/changeBaseToUrl")
     public @ResponseBody String test(@RequestParam String base64, @RequestParam String filename, @RequestParam String projectID){
-        return ossClientUtil.uploadPicture(projectID,filename+".jpg",base64);
+        return aliService.uploadPicture(projectID,filename+".jpg",base64);
     }
 
     @RequestMapping(value = "/uploadHtml")
@@ -51,7 +50,7 @@ public class PostController {
                     os.close();
                     file.transferTo(newFile);
                     // 上传到OSS
-                    uploadUrl = ossClientUtil.upLoad(newFile);
+                    uploadUrl = aliService.upLoad(newFile);
                 }
 
             }

@@ -1,8 +1,8 @@
 package com.ipnet.bl.ali;
 
 import com.aliyun.oss.OSSClient;
-import com.aliyun.oss.model.ObjectMetadata;
-import com.aliyun.oss.model.PutObjectResult;
+import com.aliyun.oss.OSSException;
+import com.aliyun.oss.model.*;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
@@ -16,9 +16,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
+import java.util.Date;
 
 @Service
 public class AliServiceImpl implements AliService {
@@ -42,7 +45,7 @@ public class AliServiceImpl implements AliService {
         oss_accessKeyId= AliConstant.oss_accessKeyId;
         oss_accessKeySecret= AliConstant.oss_accessKeySecret;
         bucketName= AliConstant.bucketName;
-        fileSeparator="/";
+        fileSeparator=File.separator;
 
         //短信平台必要变量初始化
         product=AliConstant.product;
@@ -121,6 +124,46 @@ public class AliServiceImpl implements AliService {
         }
     }
 
+    public String upLoad(File file){
+
+
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        String dateStr=format.format(new Date());
+
+        // 判断文件
+        if(file==null){
+            return null;
+        }
+        OSSClient client=new OSSClient(endPoint, oss_accessKeyId,oss_accessKeySecret);
+        try {
+            // 判断容器是否存在,不存在就创建
+            if (!client.doesBucketExist(bucketName)) {
+                client.createBucket(bucketName);
+                CreateBucketRequest createBucketRequest = new CreateBucketRequest(bucketName);
+                createBucketRequest.setCannedACL(CannedAccessControlList.PublicRead);
+                client.createBucket(createBucketRequest);
+            }
+            // 设置文件路径和名称
+            String fileUrl = (file.getName());
+            // 上传文件
+            PutObjectResult result = client.putObject(new PutObjectRequest(bucketName, fileUrl, file));
+            // 设置权限(公开读)
+            client.setBucketAcl(bucketName, CannedAccessControlList.PublicRead);
+            if (result != null) {
+                return "https:"+fileSeparator+bucketName+"."+endPoint+fileSeparator+fileUrl;
+            }
+        } catch (OSSException oe){
+
+        }catch (com.aliyun.oss.ClientException ce){
+
+        }finally{
+            if(client!=null){
+                client.shutdown();
+            }
+        }
+        return null;
+    }
+
     //判断OSS服务文件上传时文件的contentType
     private String getContentType(String filenameExtension) {
         String suffix=filenameExtension.toLowerCase();
@@ -190,5 +233,7 @@ public class AliServiceImpl implements AliService {
         }
         return code.toString();
     }
+
+
 
 }
