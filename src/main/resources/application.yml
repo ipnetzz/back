@@ -3,9 +3,9 @@ server:
 debug: false
 spring:
   mail:
-    host: smtp.163.com
-    username: ipnet2018@163.com
-    password: ipnet2018
+    host:
+    username:
+    password:
     default-encoding: UTF-8
   devtools:
     restart:
